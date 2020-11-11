@@ -7,7 +7,7 @@
             <li><time>{{ .Date.Format "02 Jan 06"}}</time> | {{ partial "post-stub.html" . -}}</li>
         {{ end }}
     </ul>
-    <div class="post-navigation">
+    <div class="container text-center mb-2">
         {{ partial "pagination.html" . }}
     </div>
 </div>
