@@ -131,4 +131,8 @@
     a {
         @extend %link-dark;
     }
+    .heart {
+        color: $red;
+        font-weight: bold;
+    }
 }

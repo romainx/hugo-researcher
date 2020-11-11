@@ -4,17 +4,12 @@
     <h1>Archives</h1>
     <span><b>{{ len $pages }}</b> articles.</span>
     {{ range $pages.GroupByDate "2006" -}}
-    <section>
       <h2>{{ .Key }}</h2>
-      {{ range .Pages.GroupByDate "January"}}
-      <h3>{{ .Key }}</h3>
       <ul>
         {{ range .Pages  -}}
-        <li><time>{{ .Date.Format "02"}}</time> | {{ partial "post-stub.html" . -}}</li>
+        <li><time>{{ .Date.Format "02 Jan"}}</time> | {{ partial "post-stub.html" . -}}</li>
         {{- end }}
       </ul>
-      {{ end }}
-    </section>
     {{ end }}
 </div>
 {{ end }}
