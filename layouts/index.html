@@ -1,5 +1,14 @@
 {{ define "main" }}
+{{ $pages := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 <div class="container">
-    {{ .Content }}
+    <h1>{{ .Site.Params.description }}</h1>
+    <ul>
+        {{ range $pages.Pages }}
+            <li><time>{{ .Date.Format "02 Jan 06"}}</time> | {{ partial "post-stub.html" . -}}</li>
+        {{ end }}
+    </ul>
+    <div class="post-navigation">
+        {{ partial "pagination.html" . }}
+    </div>
 </div>
 {{ end }}

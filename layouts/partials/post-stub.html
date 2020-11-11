@@ -1,0 +1,7 @@
+<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+<span>&ndash;</span>
+{{ with .Params.categories -}}
+<span>
+{{ range . -}}{{ . }}{{ end -}}
+</span>
+{{- end }}

@@ -1,0 +1,14 @@
+<footer>
+    <div>
+    {{ with .Site.RegularPages.Related . | first 3 -}}
+        <p>
+        <span>À lire aussi:</span>
+        {{- range $index, $tag := . -}}
+            {{- if $index -}}, {{ end }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{- end -}}
+        .
+        </p>
+    {{- end }}
+    </div>
+</footer>

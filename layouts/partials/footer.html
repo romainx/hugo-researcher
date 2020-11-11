@@ -1,8 +1,13 @@
-{{ with .Site.Params.footer }}
-    <div id="footer">
-        <hr>
-        <div class="container text-center mb-2">
-            <a href="{{ .url | absURL }}"><small>{{ .text }}</small></a>
-        </div>
-    </div>
-{{ end }}
+<div id="footer">
+  <hr>
+  <div class="container text-center mb-2">
+    {{- $current := now.Format "2006" }}
+    &copy; 
+    {{ if ne .Site.Params.since $current -}}
+    {{ .Site.Params.since }} - 
+    {{ end }}
+    {{- $current }}
+    <span>&hearts;</span>
+    <a href="/about">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
+  </div>
+</div>

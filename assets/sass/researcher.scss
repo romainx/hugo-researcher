@@ -3,6 +3,7 @@
 * {
     font-family: "Inconsolata";
     line-height: normal;
+    
 }
 .container {
     max-width: $max-width;
@@ -20,11 +21,13 @@
     }
     blockquote {
         border-left: 4px solid;
+        border-color: $red;
         font-style: italic;
         margin: $margin-y 0;
-        padding: 8px 8px;
+        padding: 8px 16px;
         & p {
             margin: 0;
+            color: $grey;
         }
     }
     code {
@@ -66,17 +69,25 @@
         padding-left: 0;
     }
     ul {
-        list-style: inside;
+        list-style: none;
+        padding-left: 2ch;
         & > li {
-            margin: 4px 0;
+            margin: 4px 10px;
         }
+    }    
+    ul li::before {
+        content: '* ';
+        font-weight: bold;
+    }
+    hr {
+        border-top: 1px dashed $light-grey;
     }
     table {
         margin: $margin-y auto;
         width: 100%;
         & tr {
             background-color: white;
-            border: 1px solid #cccccc;
+            border: 1px solid $light-grey;
             & td {
                 @extend %table-cell;
             }
@@ -87,6 +98,19 @@
             &:nth-child(2n) {
                 background-color: #f8f8f8;
             }
+        }
+    }
+    .footnote-ref {
+        > a {
+          margin-left: 3px;
+    
+          &:before {
+            content: "[";
+          }
+    
+          &:after {
+            content: "]";
+          }
         }
     }
     .avatar > img {
