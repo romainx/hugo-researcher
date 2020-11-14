@@ -4,7 +4,7 @@
     <h1>{{ .Site.Params.description }}</h1>
     <ul>
         {{ range $pages.Pages }}
-            <li><time>{{ .Date.Format "02 Jan 06"}}</time> | {{ partial "post-stub.html" . -}}</li>
+            <li><time datetime="{{ .Date.Format "02 Jan 06" }}">{{ .Date.Format "02 Jan 06"}}</time> | {{ partial "post-stub.html" . -}}</li>
         {{ end }}
     </ul>
     <div class="container text-center mb-2">

@@ -7,8 +7,7 @@
     <ul>
         {{ range $key, $value := $terms -}}
         <li>
-            <a href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
-                {{ $value.Term | humanize }}</a>
+            <a href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">{{ $value.Term | humanize }}</a>
             <span>({{ len $value.Pages }})</span>
         </li>
         {{ end -}}

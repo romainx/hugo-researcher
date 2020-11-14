@@ -7,7 +7,7 @@
       <h2>{{ .Key }}</h2>
       <ul>
         {{ range .Pages  -}}
-        <li><time>{{ .Date.Format "02 Jan"}}</time> | {{ partial "post-stub.html" . -}}</li>
+        <li><time datetime="{{ .Date.Format "02 Jan" }}">{{ .Date.Format "02 Jan"}}</time> | {{ partial "post-stub.html" . -}}</li>
         {{- end }}
       </ul>
     {{ end }}

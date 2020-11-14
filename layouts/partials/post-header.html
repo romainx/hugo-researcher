@@ -1,15 +1,23 @@
-<header class="post-header">
+<header>
     <h1>{{ .Title }}</h1>
     {{ with .Params.subtitle -}}
         <h4>{{ . }}</h4>
     {{ end -}}
     <p>
-    <span><time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ dateFormat (default "Mon, Jan 2, 2006" .Site.Params.dateFormat) .Date }}</time></span>
-    <span>&ndash;</span>
+    <span><time datetime="{{ .Date.Format .Site.Params.dateFormat }}">{{ dateFormat (default "Mon, Jan 2, 2006" .Site.Params.dateFormat) .Date }}</time></span>
     {{ with .Params.categories -}}
+        <span>&ndash;</span>
+        <span>
+        {{ range . -}}
+            <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/"> {{ . }}</a>
+        {{ end -}}
+        </span>
+    {{- end -}}
+    {{ with .Params.series -}}
+    <span>&ndash;</span>
     <span>
     {{ range . -}}
-        <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/"> {{ . }}</a>
+        <a href="{{ "series" | relLangURL }}/{{ . | urlize }}/"> {{ . }}</a>
     {{ end -}}
     </span>
     {{- end }}
