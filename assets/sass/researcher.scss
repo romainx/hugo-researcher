@@ -16,8 +16,18 @@
     @extend %link-default;
 }
 #content {
-    a {
+
+    a:not([href*="//"]) {
+        /* CSS for internal links */
         @extend %link-default;
+    }
+    
+    a[href*="//"] {
+        /*CSS for external links */
+        @extend %link-default;
+        &:after {
+            content: "\2197";
+          }
     }
     blockquote {
         border-left: 4px solid;

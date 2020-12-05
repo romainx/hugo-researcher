@@ -5,7 +5,7 @@
         <span>À lire aussi:</span>
         {{- range $index, $tag := . -}}
             {{- if $index -}}, {{ end }}
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{- end -}}
         .
         </p>
