@@ -7,7 +7,6 @@
       {{ .Site.Params.since }}-
     {{- end }}
     {{- $current }}
-    <span class="heart">&hearts;</span>
-    <a href="/about">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
+    <a href="/about">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}~ {{ .Site.Author.name | safeHTML }}{{ end }}</span>
   </div>
 </div>

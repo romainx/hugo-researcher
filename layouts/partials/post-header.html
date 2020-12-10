@@ -6,20 +6,17 @@
     <p>
     <span><time datetime="{{ .Date.Format .Site.Params.dateFormat }}">{{ dateFormat (default "Mon, Jan 2, 2006" .Site.Params.dateFormat) .Date }}</time></span>
     {{ with .Params.categories -}}
-        <span>&ndash;</span>
-        <span>
-        {{ range . -}}
-            <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/"> {{ . }}</a>
-        {{ end -}}
+        <span>&ndash; </span><span>
+        {{- range . -}}
+            <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/">{{ . }}</a>
+        {{- end -}}
         </span>
     {{- end -}}
-    {{ with .Params.series -}}
-    <span>&ndash;</span>
-    <span>
-    {{ range . -}}
-        <a href="{{ "series" | relLangURL }}/{{ . | urlize }}/"> {{ . }}</a>
-    {{ end -}}
-    </span>
+    {{ $featured := "Coup de coeur" }}
+    {{- if in .Params.tags $featured -}}
+        {{- with $.Site.GetPage (printf "/%s/%s" "tags" ($featured | urlize)) -}}
+            <span> <a href="{{ .RelPermalink }}" class="heart">&hearts;</a></span>
+        {{- end }}
     {{- end }}
     </p>
 </header>

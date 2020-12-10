@@ -135,13 +135,13 @@
             padding: 8px 8px;
         }
     }
+    .heart {
+        color: $red;
+        font-weight: bold;
+    }
 }
 #footer {
     a {
         @extend %link-dark;
-    }
-    .heart {
-        color: $red;
-        font-weight: bold;
     }
 }

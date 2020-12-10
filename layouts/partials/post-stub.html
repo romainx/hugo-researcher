@@ -2,3 +2,6 @@
 {{ with .Params.categories -}}
     ({{ range . -}}{{ . }}{{ end -}})
 {{- end }}
+{{- if in .Params.tags "Coup de coeur" -}}
+    <span class="heart">&nbsp;&hearts;</span>
+{{- end }}
