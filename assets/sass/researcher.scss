@@ -2,7 +2,7 @@
 
 * {
     font-family: "Inconsolata";
-    line-height: normal;
+    line-height: 1.15rem;
     font-size: 1.05rem;
 }
 .container {
@@ -114,6 +114,7 @@
         > a {
           margin-left: 3px;
           font-size: small;
+          font-weight: bold;
     
           &:before {
             content: "[";
